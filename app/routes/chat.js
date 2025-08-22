@@ -1,9 +1,10 @@
 import Route from '@ember/routing/route';
+import { A } from '@ember/array';
 
 export default Route.extend({
     async model() {
-        const data = await fetch('/api/posts')
-        const resJson = data.json()
-        return resJson
+        const response = await fetch('/api/posts');
+        const resJson = await response.json();
+        return A(resJson || []);
     }
 });

@@ -2,6 +2,7 @@ export default function () {
 
   const posts = [
     {
+      id: 1,
       profile: {
         username: "Devon",
         mail: "@devonLee",
@@ -12,6 +13,7 @@ export default function () {
       }
     },
     {
+      id: 2,
       profile: {
         username: "Howard",
         mail: "@howardhue",
@@ -41,17 +43,45 @@ export default function () {
     return posts
   })
 
-  this.get("posts/:id" , (_ , request) =>{
-    const id = request.params.id;
-    return posts.objectAt(id);
+  this.get("posts/:id", (_, request) => {
+    const id = JSON.parse(request.params.id);
+    let chatPost = posts.find((post) => {
+      return post.id === id
+    });
+    return chatPost;
   })
-  
-  this.post("/posts" , (_ , request) => {
+
+  this.post("/posts", (_, request) => {
     let data = JSON.parse(request.requestBody);
     posts.pushObject(data)
     return posts
   })
 
+  this.patch("/posts/:id", (_, request) => {
+    const id = Number(request.params.id);
+    let newAttrs = JSON.parse(request.requestBody);
+    let post = posts.find((p) => p.id === id);
+    if (post) {
+      Object.assign(post.post, newAttrs);
+      post.profile.timeOfPost = Date.now();
+
+      return posts;
+    } else {
+      return { error: "Post not found" };
+    }
+  });
+
+  this.delete("/posts/:id", (_, request) => {
+    const id = Number(request.params.id);
+    let index = posts.findIndex((p) => p.id === id);
+
+    if (index !== -1) {
+      posts.splice(index, 1);
+      return posts;
+    } else {
+      return { error: "Post not found" };
+    }
+  })
   /*
     Shorthand cheatsheet:
 

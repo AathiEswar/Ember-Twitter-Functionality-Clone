@@ -60,102 +60,177 @@
         }
     }
 
-    .post-profile{
+    .post-profile {
         display: flex;
         gap: 4px;
     }
 }
 
-.post-wrapper{
+.post-wrapper {
     width: 100%;
     text-align: start;
     border-bottom: 1px solid var(--secondary-2);
     padding: 30px;
 
-    p{
+    .post-button {
+        margin: auto 5px;
+        float: right;
+        font-size: 12px;
+    }
+
+    .post-text-box {
+        width: 100%;
+        background-color: var(--primary);
         font-size: 14px;
         margin-top: 10px;
     }
 }
 
-.chat-wrapper{
+.chat-wrapper {
     width: 100%;
 }
 
-.post-input-wrapper{
+.post-input-wrapper {
     padding: 30px;
-    img{
+
+    img {
         display: inline-block;
     }
-    input{
+
+    input {
         background-color: var(--primary);
         padding: 10px;
     }
-    input:focus{
+
+    input:focus {
         outline: none;
     }
-    button{
+
+    button {
         padding: 5px 10px;
         border-radius: 16px;
         background-color: var(--accent);
     }
 }
 
-a.active{
+.primary-button {
+    width: max-content;
+    padding: 5px 10px;
+    border-radius: 16px;
+    background-color: var(--accent);
+}
+
+a.active {
     color: var(--accent);
     fill: var(--accent);
 }
 
 /* app/styles/app.css */
-:root{
-    --bg:#0f1419; --panel:#15202b; --panel2:#1e2732; --text:#e6e9ec; --muted:#8b98a5; --brand:#1d9bf0; --border:#2f3a45;
-    --r:16px;
-  }
-  .tw-card{
+:root {
+    --bg: #0f1419;
+    --panel: #15202b;
+    --panel2: #1e2732;
+    --text: #e6e9ec;
+    --muted: #8b98a5;
+    --brand: #1d9bf0;
+    --border: #2f3a45;
+    --r: 16px;
+}
+
+.tw-card {
     height: fit-content;
-    background:var(--panel);
-    border:1px solid var(--border);
-    border-radius:var(--r);
-    color:var(--text);
-    padding:12px 14px;
-    max-width:620px;
-    margin:12px auto;
-    font-family:system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial;
-  }
-  .tw-card__header{
-    display:grid;
-    grid-template-columns:48px 1fr;
-    gap:10px;
-    align-items:center;
-    margin-bottom:6px;
-  }
-  .tw-card__avatar{
-    width:48px;height:48px;border-radius:50%;
-    background:linear-gradient(135deg,#3a8ee6,#7a5cfb);
-    display:flex;align-items:center;justify-content:center;
-    font-weight:800;color:#fff;
+    background: var(--panel);
+    border: 1px solid var(--border);
+    border-radius: var(--r);
+    color: var(--text);
+    padding: 12px 14px;
+    max-width: 620px;
+    margin: 12px auto;
+    font-family: system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial;
+}
+
+.tw-card__header {
+    display: grid;
+    grid-template-columns: 48px 1fr;
+    gap: 10px;
+    align-items: center;
+    margin-bottom: 6px;
+}
+
+.tw-card__avatar {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #3a8ee6, #7a5cfb);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 800;
+    color: #fff;
     /* show only first letter of username without JS */
-    font-size:0;
-  }
-  .tw-card__avatar::first-letter{ font-size:16px; }
-  .tw-card__head{ min-width:0; }
-  .tw-card__line1{ display:flex; align-items:center; gap:8px; flex-wrap:wrap; }
-  .tw-card__name{ font-weight:700; }
-  .tw-card__handle,.tw-card__time{ color:var(--muted); }
-  .tw-card__dot{ color:var(--muted); }
-  
-  .tw-card__body{ margin-top:6px; }
-  .tw-card__text{ margin:0; line-height:1.45; }
-  
-  .tw-card__actions{
-    display:flex; gap:18px; margin-top:10px; border-top:1px solid var(--border); padding-top:10px;
-  }
-  .tw-btn{
-    background:transparent; border:none; color:var(--muted);
-    padding:6px 10px; border-radius:999px; cursor:pointer;
-  }
-  .tw-btn:hover{ background:#1b2836; color:var(--text); }
-  
-  /* Example: target a specific post by id via the appended class */
-  .postId-42 .tw-card__avatar{ background:linear-gradient(135deg,#ff7a7a,#ffbd4a); }
-  
+    font-size: 0;
+}
+
+.tw-card__avatar::first-letter {
+    font-size: 16px;
+}
+
+.tw-card__head {
+    min-width: 0;
+}
+
+.tw-card__line1 {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    flex-wrap: wrap;
+}
+
+.tw-card__name {
+    font-weight: 700;
+}
+
+.tw-card__handle,
+.tw-card__time {
+    color: var(--muted);
+}
+
+.tw-card__dot {
+    color: var(--muted);
+}
+
+.tw-card__body {
+    margin-top: 6px;
+}
+
+.tw-card__text {
+    margin: 0;
+    line-height: 1.45;
+}
+
+.tw-card__actions {
+    display: flex;
+    gap: 18px;
+    margin-top: 10px;
+    border-top: 1px solid var(--border);
+    padding-top: 10px;
+}
+
+.tw-btn {
+    background: transparent;
+    border: none;
+    color: var(--muted);
+    padding: 6px 10px;
+    border-radius: 999px;
+    cursor: pointer;
+}
+
+.tw-btn:hover {
+    background: #1b2836;
+    color: var(--text);
+}
+
+/* Example: target a specific post by id via the appended class */
+.postId-42 .tw-card__avatar {
+    background: linear-gradient(135deg, #ff7a7a, #ffbd4a);
+}
