@@ -1,4 +1,3 @@
-{{#link-to "post-id" @index}}
 <div class="post-wrapper">
   <Profile 
   @mail={{@post.profile.mail}} 
@@ -6,8 +5,22 @@
   @isPostProfile={{true}}
   @timeOfPost={{@post.profile.timeOfPost}}
    />
-  <p>
+  {{!-- <p>
     {{@post.post.content}}
-  </p>
+  </p> --}}
+  <Input @disabled={{this.isPostEditEnabled}}  class="post-text-box" @value={{@post.post.content}} />
+  <div class="primary-button post-button">
+    {{#link-to "post-id" @post.id}}
+      See Post
+    {{/link-to}}
+  </div>
+  {{!-- <button class="primary-button post-button" {{action @onPostEdit}}>
+    {{if this.isPostEditEnabled "Edit Post" "Submit"}}
+  </button> --}}
+  <button class="primary-button post-button" {{action @onDelete}}>
+    Delete Post
+  </button>
+    <button class="primary-button post-button" {{action "handleEdit" @post.id}}>
+     {{if this.isPostEditEnabled "Edit Post" "Submit"}}
+  </button>
 </div>
-{{/link-to}}
