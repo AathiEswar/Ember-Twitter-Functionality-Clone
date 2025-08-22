@@ -1,0 +1,14 @@
+<div class="profile-wrapper">
+  <div class="profile-img-wrapper">
+    <img height="30" width="30" src={{if @imgURL @imgURL "/icons/user.svg"}} alt="user">
+  </div>
+  <div class="profile-content-wrapper {{if @isPostProfile "post-profile"}}">
+    <h3>{{@username}}</h3>
+    <span>{{@mail}}</span>
+    {{#if @isPostProfile}}
+      {{#if @timeOfPost}}
+        . <span>{{time-ago @timeOfPost}}</span>
+      {{/if}}
+    {{/if}}
+  </div>
+</div>

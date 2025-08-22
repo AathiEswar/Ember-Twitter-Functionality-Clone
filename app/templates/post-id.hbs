@@ -1,0 +1,19 @@
+<article class="tw-card postId-{{model.id}}" role="article" aria-label="Post">
+  <header class="tw-card__header">
+    <div class="tw-card__avatar" aria-hidden="true">{{model.profile.username}}</div>
+    <div class="tw-card__head">
+      <div class="tw-card__line1">
+        <span class="tw-card__name">{{model.profile.username}}</span>
+        <span class="tw-card__handle">{{model.profile.mail}}</span>
+        <span class="tw-card__dot">•</span>
+        <span class="tw-card__time">{{time-ago model.profile.timeOfPost}}</span>
+      </div>
+    </div>
+  </header>
+
+  <div class="tw-card__body">
+    <p class="tw-card__text">
+      {{model.post.content}}
+    </p>
+  </div>
+</article>

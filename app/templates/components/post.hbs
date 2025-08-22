@@ -1,0 +1,13 @@
+{{#link-to "post-id" @index}}
+<div class="post-wrapper">
+  <Profile 
+  @mail={{@post.profile.mail}} 
+  @username={{@post.profile.username}}
+  @isPostProfile={{true}}
+  @timeOfPost={{@post.profile.timeOfPost}}
+   />
+  <p>
+    {{@post.post.content}}
+  </p>
+</div>
+{{/link-to}}

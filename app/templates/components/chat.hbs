@@ -1,0 +1,5 @@
+  <Chat::PostInput @onClick={{action "handleSubmit"}} @inputValue={{this.inputValue}}/>
+  {{#each @model as |post index|}}
+    <Post @post={{post}} @index={{index}} />
+  {{/each}}
+  {{!-- <button class="post-input-button" {{action "handleSubmit"}}>Tweet</button> --}}
