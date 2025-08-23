@@ -92,7 +92,9 @@
 
 .post-input-wrapper {
     padding: 30px;
-
+    display: flex;
+    gap: 12px;
+    align-items: center;
     img {
         display: inline-block;
     }
@@ -233,4 +235,38 @@ a.active {
 /* Example: target a specific post by id via the appended class */
 .postId-42 .tw-card__avatar {
     background: linear-gradient(135deg, #ff7a7a, #ffbd4a);
+}
+
+.circle-container {
+    position: relative;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.progress-ring__bg {
+    fill: none;
+    stroke: #e0e0e0;
+    /* background circle */
+    stroke-width: 3;
+}
+
+.progress-ring__progress {
+    fill: none;
+    stroke: #1da1f2;
+    /* progress stroke */
+    stroke-width: 3;
+    stroke-linecap: round;
+    transform: rotate(-90deg);
+    transform-origin: center;
+    transition: stroke-dashoffset 0.3s ease;
+}
+
+.circle-text {
+    position: absolute;
+    font-size: 10px;
+    font-weight: bold;
+    color: #fff;
 }

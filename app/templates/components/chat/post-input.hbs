@@ -1,5 +1,6 @@
 <div class="post-input-wrapper">
   <img height="30" width="30" src="/icons/user.svg" alt="">
-  <Input class="post-input" placeholder="What's happening" @value={{@inputValue}} />
+  <Input maxlength={{40}} class="post-input" placeholder="What's happening" @value={{@inputValue}} />
+  <p>{{this.inputCount}}/{{this.maxCount}}</p>
   <button class="post-input-button" {{action this.onClick}}>Tweet</button>
 </div>

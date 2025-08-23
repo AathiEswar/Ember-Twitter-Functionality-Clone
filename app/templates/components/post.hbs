@@ -1,14 +1,11 @@
 <div class="post-wrapper">
-  <Profile 
-  @mail={{@post.profile.mail}} 
-  @username={{@post.profile.username}}
-  @isPostProfile={{true}}
-  @timeOfPost={{@post.profile.timeOfPost}}
-   />
+  <Profile @mail={{@post.profile.mail}} @username={{@post.profile.username}} @isPostProfile={{true}}
+    @timeOfPost={{@post.profile.timeOfPost}} />
   {{!-- <p>
     {{@post.post.content}}
   </p> --}}
-  <Input @disabled={{this.isPostEditEnabled}}  class="post-text-box" @value={{@post.post.content}} />
+  <Input maxlength={{40}} @disabled={{this.isPostEditEnabled}} @input={{action "handleInput" }} class="post-text-box"
+    @value={{@post.post.content}} />
   <div class="primary-button post-button">
     {{#link-to "post-id" @post.id}}
       See Post
@@ -20,7 +17,17 @@
   <button class="primary-button post-button" {{action @onDelete}}>
     Delete Post
   </button>
-    <button class="primary-button post-button" {{action "handleEdit" @post.id}}>
-     {{if this.isPostEditEnabled "Edit Post" "Submit"}}
+  <button class="primary-button post-button" {{action "handleEdit" @post.id}}>
+    {{if this.isPostEditEnabled "Edit Post" "Submit"}}
   </button>
+  <div class="circle-container">
+    <svg class="progress-ring" width="40" height="40">
+      <circle class="progress-ring__bg" r="18" cx="20" cy="20" />
+      <circle class="progress-ring__progress" r="18" cx="20" cy="20" stroke-dasharray="113" 
+        stroke-dashoffset={{this.strokeOffset}}
+        />
+    </svg>
+  </div>
+  <span class="circle-text">{{this.charCount}}/{{this.maxCharCount}}</span>
+
 </div>
