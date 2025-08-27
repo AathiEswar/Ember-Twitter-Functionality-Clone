@@ -13,11 +13,11 @@ export default Component.extend({
         this.set("charCount", this.post.post.content?.length || 0);
     },
 
-    remaining: computed('charCount', 'maxCharCount', function () {
+    remaining: computed('charCount', function () {
         return this.maxCharCount - this.charCount;
     }),
 
-    strokeOffset: computed('charCount', 'maxCharCount', function () {
+    strokeOffset: computed('charCount', function () {
         let r = 18;
         let circ = 2 * Math.PI * r;
         let progress = Math.min(this.charCount / this.maxCharCount, 1);

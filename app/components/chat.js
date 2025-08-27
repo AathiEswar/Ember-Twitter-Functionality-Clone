@@ -2,38 +2,43 @@ import Component from '@ember/component';
 
 export default Component.extend({
     inputValue: "",
+    isSubmitting: false,
     actions: {
         async handleSubmit() {
-            if (this.inputValue) {
-                const model = this.get("model");
-                const item = {
-                    id: model.length + 1,
-                    profile: {
-                        username: "Aathi Eswar",
-                        mail: "@aathieswar",
-                        timeOfPost: Date.now(),
+            if (this.isSubmitting || !this.inputValue) {
+                return;
+            }
+            this.set('isSubmitting', true);
+            const model = this.get("model");
+            const item = {
+                id: model.length + 1,
+                profile: {
+                    username: "Aathi Eswar",
+                    mail: "@aathieswar",
+                    timeOfPost: Date.now(),
+                },
+                post: {
+                    content: this.inputValue
+                }
+            };
+            try {
+                const res = await fetch("/api/posts", {
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/json"
                     },
-                    post: {
-                        content: this.inputValue
-                    }
-                }
-                try {
-                    const res = await fetch("/api/posts", {
-                        method: "POST",
-                        headers: {
-                            "Content-Type": "application/json"
-                        },
-                        body: JSON.stringify(item)
-                    });
-                    const data = await res.json();
+                    body: JSON.stringify(item)
+                });
+                const data = await res.json();
 
-                    model.clear();
-                    model.pushObjects(data);
-                    this.set("inputValue", "")
-                }
-                catch (e) {
-                    console.error(e)
-                }
+                model.clear();
+                model.pushObjects(data);
+                this.set("inputValue", "");
+            }
+            catch (e) {
+                console.error(e);
+            } finally {
+                this.set('isSubmitting', false);
             }
         },
         async handlePostEdit(postId, inputValue) {

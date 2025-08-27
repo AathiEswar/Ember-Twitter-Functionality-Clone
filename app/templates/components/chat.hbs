@@ -1,9 +1,16 @@
-  <Chat::PostInput @onClick={{action "handleSubmit"}} @inputValue={{this.inputValue}}/>
-  {{#each @sortedPosts as |post|}}
-    <Post 
-      @post={{post}}
-      @onPostEdit={{action "handlePostEdit"}}
-      @onDelete={{action "handleDelete" post.id}}
-    />
-  {{/each}}
+<div class="post-top">
+  <Chat::PostInput @onClick={{action "handleSubmit"}} @inputValue={{this.inputValue}} @isLoading={{this.isSubmitting}}/>
+  {{#link-to "liked-chats"  class="primary-button"}}
+    Liked Post
+  {{/link-to}}
+</div>
+  <div class="post-container">
+    {{#each @sortedPosts as |post|}}
+      <Post 
+        @post={{post}}
+        @onPostEdit={{action "handlePostEdit"}}
+        @onDelete={{action "handleDelete" post.id}}
+      />
+    {{/each}}
+  </div>
   {{!-- <button class="post-input-button" {{action "handleSubmit"}}>Tweet</button> --}}

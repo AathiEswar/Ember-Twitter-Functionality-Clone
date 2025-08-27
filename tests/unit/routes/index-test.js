@@ -4,8 +4,9 @@ import { setupTest } from 'ember-qunit';
 module('Unit | Route | index', function(hooks) {
   setupTest(hooks);
 
-  test('it exists', function(assert) {
+  test('Returns Home Page', function(assert) {
     let route = this.owner.lookup('route:index');
-    assert.ok(route);
+    let model = route.model();
+    assert.equal(model, "Home Page");
   });
 });

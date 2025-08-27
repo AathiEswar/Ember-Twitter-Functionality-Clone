@@ -57,6 +57,14 @@ export default function () {
     return posts
   })
 
+  this.post("/liked-post", (_, request) => {
+    let likedPostIds = JSON.parse(request.requestBody); 
+    console.log("likedPost", likedPostIds)
+    let resArray = posts.filter(post => likedPostIds.includes(post.id));
+    console.log("res array" , resArray)
+    return resArray;
+  })
+
   this.patch("/posts/:id", (_, request) => {
     const id = Number(request.params.id);
     let newAttrs = JSON.parse(request.requestBody);

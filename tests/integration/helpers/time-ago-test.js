@@ -8,10 +8,10 @@ module('Integration | Helper | time-ago', function(hooks) {
 
   // Replace this with your real tests.
   test('it renders', async function(assert) {
-    this.set('inputValue', '1234');
+    this.set('inputValue', '1692615600000');
 
     await render(hbs`{{time-ago inputValue}}`);
 
-    assert.equal(this.element.textContent.trim(), '1234');
+    assert.equal(this.element.textContent.trim(), '2y ago');
   });
 });

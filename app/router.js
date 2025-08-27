@@ -6,7 +6,9 @@ export default class Router extends EmberRouter {
   rootURL = config.rootURL;
 }
 
-Router.map(function() {
+Router.map(function () {
   this.route('chat');
-  this.route('post-id' , {path : 'chat/:id'});
+  this.route('post-id', { path: 'chat/:id' });
+  this.route('liked-chats');
+  this.mount('home-interface-engine', { as: 'home', path: '/home' });
 });

@@ -1,0 +1,36 @@
+<section class="lp-wrapper">
+    {{#each @model as |post|}}
+    <div class="post-wrapper">
+        <Profile @mail={{post.profile.mail}} @username={{post.profile.username}} @isPostProfile={{true}}
+            @timeOfPost={{post.profile.timeOfPost}} />
+        {{!-- <p>
+            {{post.post.content}}
+        </p> --}}
+        <Input maxlength={{40}} @disabled={{this.isPostEditEnabled}} class="post-text-box"
+            @value={{post.post.content}} />
+        <div class="primary-button post-button">
+            {{#link-to "post-id" post.id}}
+            See Post
+            {{/link-to}}
+        </div>
+        {{!-- <button class="primary-button post-button" {{action @onPostEdit}}>
+            {{if this.isPostEditEnabled "Edit Post" "Submit"}}
+        </button> --}}
+        {{!-- <button class="primary-button post-button" {{action @onDelete}}>
+            Delete Post
+        </button> --}}
+        {{!-- <button class="primary-button post-button" {{action "handleEdit" post.id}}>
+            {{if this.isPostEditEnabled "Edit Post" "Submit"}}
+        </button> --}}
+        {{!-- <div class="circle-container">
+            <svg class="progress-ring" width="40" height="40">
+                <circle class="progress-ring__bg" r="18" cx="20" cy="20" />
+                <circle class="progress-ring__progress" r="18" cx="20" cy="20" stroke-dasharray="113"
+                    stroke-dashoffset={{this.strokeOffset}} />
+            </svg>
+        </div> --}}
+        {{!-- <span class="circle-text">{{this.charCount}}/{{this.maxCharCount}}</span>
+        <Post::Like @id={{post.id}} /> --}}
+    </div>
+    {{/each}}
+</section>

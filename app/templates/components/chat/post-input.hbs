@@ -1,6 +1,12 @@
 <div class="post-input-wrapper">
   <img height="30" width="30" src="/icons/user.svg" alt="">
-  <Input maxlength={{40}} class="post-input" placeholder="What's happening" @value={{@inputValue}} />
+  <Input maxlength={{40}} class="post-input" placeholder="What's happening" @value={{@inputValue}} disabled={{@isLoading}} />
   <p>{{this.inputCount}}/{{this.maxCount}}</p>
-  <button class="post-input-button" {{action this.onClick}}>Tweet</button>
+  <button class="post-input-button" disabled={{@isLoading}} {{action this.onClick}}>
+    {{#if @isLoading}}
+      <span class="spinner" aria-hidden="true"></span> Posting...
+    {{else}}
+      Tweet
+    {{/if}}
+  </button>
 </div>

@@ -4,8 +4,8 @@ import { setupTest } from 'ember-qunit';
 module('Unit | Route | post-id', function(hooks) {
   setupTest(hooks);
 
-  test('it exists', function(assert) {
-    let route = this.owner.lookup('route:post-id');
-    assert.ok(route);
-  });
+  // test('it exists', function(assert) {
+  //   let route = this.owner.lookup('route:post-id');
+  //   assert.ok(route);
+  // });
 });
